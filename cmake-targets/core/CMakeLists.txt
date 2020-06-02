@@ -1,6 +1,6 @@
 
 set(CORE_SOURCE
-  include/core/branch.hpp
+  include/core/block_collection.hpp
   include/core/abstract_block.hpp
   src/core/abstract_block.cpp
 )
