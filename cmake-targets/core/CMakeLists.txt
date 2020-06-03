@@ -2,6 +2,7 @@
 set(CORE_SOURCE
   include/core/block_collection.hpp
   src/core/block_collection.cpp
+  include/core/i_executable.hpp
   include/core/abstract_block.hpp
   src/core/abstract_block.cpp
 )
