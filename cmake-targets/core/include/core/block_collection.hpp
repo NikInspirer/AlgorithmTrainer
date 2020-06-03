@@ -1,26 +1,30 @@
 
-#include <inttypes.h>
 #include <QSharedPointer>
 #include <QVector>
 
 class AbstractBlock;
 
 /**
- * @brief Коллекция блоков алгоритма, которая предоставляет методы для их
- *        добавления, удаления и получения по индексу.
+ * @brief Коллекция блоков, которая предоставляет методы для их добавления,
+ *        удаления и получения по индексу.
+ *
+ * Коллекция блоков является аналогом безразмерного одномерного массива, в
+ * котором хранятся указатели на блоки. Индексация блоков начинается с 0 без
+ * пропущенных позиций в середине. Индексы при доступе к блокам должны быть
+ * больше 0, но не больше размера коллекции.
  */
 class BlockCollection {
 public:
     BlockCollection() = default;
     ~BlockCollection() = default;
 
-    size_t size() const;
-    QSharedPointer<AbstractBlock> getBlock(uint64_t index) const;
+    int size() const;
+    QSharedPointer<AbstractBlock> getBlock(int index) const;
 
     void prepend(QSharedPointer<AbstractBlock> block);
     void append(QSharedPointer<AbstractBlock> block);
-    void insert(uint64_t index, QSharedPointer<AbstractBlock> block);
-    void remove(uint64_t index);
+    void insert(int index, QSharedPointer<AbstractBlock> block);
+    void remove(int index);
 
 private:
     QVector<QSharedPointer<AbstractBlock>> m_collection;  //< Коллекция блоков.
