@@ -1,8 +1,12 @@
 
+class IExecutable;
+
 /**
  * @brief Результат выполнения.
  */
-struct ExeResult {};
+struct ExeResult {
+    const IExecutable *redirect;    ///< Перенаправление после выполнения.
+};
 
 /**
  * @brief Интерфейс, определяющий поведение исполняемой сущности.
