@@ -1,25 +1,22 @@
 #pragma once
 
 #include <QString>
-#include <QSharedPointer>
-//#include <core/branch.hpp>
+#include <QHash>
+#include <core/block_collection.hpp>
 
 /**
- * @brief Абстрактный класс, определяющий поведение блока алгоритма с
- *        определением поведения по умолчанию для большинства методов.
+ * @brief Абстрактный класс, определяющий поведение блока.
  */
 class AbstractBlock
 {
 public:
-    AbstractBlock() = default;
-    virtual ~AbstractBlock() = default;
+    explicit AbstractBlock( const QStringList &brNames = QStringList() );
+    virtual ~AbstractBlock();
 
     virtual QString getType() const = 0;
-//    virtual QSharedPointer<Branch> getParent() const;
-//    virtual QSharedPointer<Branch> getBranch(const QString &name) const;
-    virtual QStringList getBranchNames() const;
+    QStringList getBranchNames() const;
 
-//    virtual void setParent(QSharedPointer<Branch> branch);
-//    virtual void setData()
+protected:
+    QHash<QString, BlockCollection *> branches;     ///< Хэш внутренних ветвей.
 };
 
