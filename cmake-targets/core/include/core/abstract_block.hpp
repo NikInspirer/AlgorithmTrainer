@@ -2,12 +2,13 @@
 
 #include <QString>
 #include <QHash>
+#include <core/management/with_uuid.hpp>
 #include <core/block_collection.hpp>
 
 /**
  * @brief Абстрактный класс, определяющий поведение блока.
  */
-class AbstractBlock
+class AbstractBlock : public WithUuid
 {
 public:
     explicit AbstractBlock( const QStringList &brNames = QStringList() );

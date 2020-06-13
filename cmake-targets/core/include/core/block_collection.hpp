@@ -1,6 +1,7 @@
 
 #include <QSharedPointer>
 #include <QVector>
+#include <core/management/with_uuid.hpp>
 
 class AbstractBlock;
 
@@ -12,8 +13,10 @@ class AbstractBlock;
  * котором хранятся указатели на блоки. Индексация блоков начинается с 0 без
  * пропущенных позиций в середине. Индексы при доступе к блокам должны быть
  * больше 0, но не больше размера коллекции.
+ *
+ * Коллекция блоков наследуется от WithUuid, поэтому имеет UUID.
  */
-class BlockCollection {
+class BlockCollection : public WithUuid {
 public:
     BlockCollection() = default;
     ~BlockCollection() = default;
