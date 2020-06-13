@@ -1,7 +1,7 @@
 
 set(CORE_SOURCE
-  include/core/management/registable.hpp
-  src/core/management/registable.cpp
+  include/core/management/with_uuid.hpp
+  src/core/management/with_uuid.cpp
 
   include/core/block_collection.hpp
   src/core/block_collection.cpp
